@@ -1,11 +1,11 @@
 //helper functions
+
+
 function submitChannel() {
 
-    const api = 'http://localhost:8888/.netlify/functions/main'
     const channelUrl = document.querySelector('.channel-input').value
-    console.log(channelUrl)
     //send to server
-    fetch(api, {
+    fetch('http://localhost:8888/.netlify/functions/main', {
         method: 'POST',
         headers: {
             'Content-Type': 'application/json',
@@ -29,9 +29,9 @@ function newEl(type, attrib = {}) {
     return el
 }
 
-//load creators from api
+//load creators from api// get data from backend
 async function loadCreators() {
-    const res = await fetch('http://localhost:8888/.netlify/functions/scrapper')
+    const res = await fetch('http://localhost:8888/.netlify/functions/main')
     const creators = await res.json()
 
     const ctnr = document.querySelector('.container') //select container div from DOM

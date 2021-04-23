@@ -1,6 +1,6 @@
 const fR = require('./formattedReturn')
 const { table } = require('./airtable')
-// const {scrappers} = require('./scrappers')
+const scrappers = require('./scrappers')
 module.exports = async (event) => {
 
     try {
@@ -10,8 +10,6 @@ module.exports = async (event) => {
              {name:"Dave Lee", img: "https://"},
              {name:"MKBHD", img: "https://"}
         ]
-        
-    
         return fR(200, creators)
     } catch (err) {
         console.error(err)
